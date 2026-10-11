@@ -1,0 +1,15 @@
+node_modules/
+client/node_modules/
+server/node_modules/
+client/dist/
+.env
+server/.env
+server/data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.log
+.DS_Store
+coverage/
+e2e/shots/
+client/.vite/
