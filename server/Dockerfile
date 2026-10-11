@@ -7,7 +7,6 @@ COPY src ./src
 COPY sql ./sql
 # SQLite lives on a named volume mounted at /data (see docker-compose.yml).
 RUN mkdir -p /data && chown node:node /data
-VOLUME ["/data"]
 EXPOSE 4000
 USER node
 CMD ["node", "src/index.js"]
