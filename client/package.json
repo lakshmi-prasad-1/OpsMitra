@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "vercel-build": "node scripts/check-vercel-config.mjs && vite build"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.104.1",

@@ -7,7 +7,7 @@ export default [
   { ignores: ['**/node_modules/**', 'client/dist/**', 'server/data/**', 'e2e/shots/**'] },
   js.configs.recommended,
   {
-    files: ['server/**/*.js', 'e2e/**/*.mjs', 'eslint.config.mjs', 'client/vite.config.js'],
+    files: ['server/**/*.js', 'e2e/**/*.mjs', 'eslint.config.mjs', 'client/vite.config.js', 'client/scripts/**/*.mjs'],
     languageOptions: { ecmaVersion: 2024, sourceType: 'module', globals: { ...globals.node, ...globals.browser } },
     rules: { 'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }], 'no-empty': ['error', { allowEmptyCatch: true }] }
   },

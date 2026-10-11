@@ -13,3 +13,5 @@ server/data/
 coverage/
 e2e/shots/
 client/.vite/
+.vercel/
+server/data/backups/
