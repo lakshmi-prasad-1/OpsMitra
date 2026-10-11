@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { prepareDatabaseDirectory } from './dbPath.js';
 
 export const dbDriver = (process.env.DB_DRIVER || 'sqlite').toLowerCase();
 const serverDirectory = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -8,11 +9,11 @@ export const databaseTodaySql = dbDriver === 'sqlite' ? "SELECT DATE('now', 'loc
 let pool;
 
 if (dbDriver === 'sqlite') {
-  const [{ default: Database }, { mkdirSync, readFileSync }] = await Promise.all([
+  const [{ default: Database }, { readFileSync }] = await Promise.all([
     import('better-sqlite3'), import('node:fs')
   ]);
   const databasePath = resolve(process.env.SQLITE_PATH || resolve(serverDirectory, 'data/opsmitra.sqlite'));
-  mkdirSync(dirname(databasePath), { recursive: true });
+  prepareDatabaseDirectory(databasePath);
   const database = new Database(databasePath);
   database.pragma('foreign_keys = ON');
   database.pragma('journal_mode = WAL');
